@@ -1,6 +1,6 @@
 import random
 input_word = input('Введите слово: ')
-file_path = 'synonym.txt'
+file_path = 'synonyms.txt'
 synonyms_dict = dict()
 try:
     with open(file_path, 'r', encoding='UTF-8') as f:
@@ -37,11 +37,9 @@ try:
                     with open(file_path, 'w', encoding='UTF-8') as f:
                         f.write(string_to_write)
                 else:
-                    print('\033[31mСлово уже имеется в списке синонимов.\033[0m')
+                    print('\033[31mСлово уже имеется в словаре.\033[0m')
                 break
-            else:  # Если ввели не 1 или 2
-                print('\033[31mМожно ввести только 1 или 2.\033[0m')
-    else:  # Если слово отсутствует
+    else:
         print('\033[31mСлово отсутствует в файле.\033[0m')
 except FileNotFoundError:
     print(f'\033[31mФайл {file_path} не найден.\033[0m')
